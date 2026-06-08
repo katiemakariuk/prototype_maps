@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<VBox id="vbox_base" prefHeight="401.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar id="barre_menu" VBox.vgrow="ALWAYS">
+      <menus>
+        <Menu mnemonicParsing="false" text="Fichiers">
+          <items>
+                  <Menu id="menu_importation" mnemonicParsing="false" text="Importer">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Importer un csv de routes" />
+                  <MenuItem mnemonicParsing="false" text="Importer un csv de correspondances" />
+                    </items>
+                  </Menu>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Préférences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quitter" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Aide">
+          <items>
+            <MenuItem mnemonicParsing="false" text="À propos" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextField id="barre_de_recherche_arrivee" layoutX="275.0" layoutY="55.0" prefHeight="31.0" prefWidth="210.0" promptText="Nom de ville d'arrivée..." />
+            <ListView id="suggestions" disable="true" layoutX="66.0" layoutY="94.0" prefHeight="31.0" prefWidth="419.0" visible="false" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="14.0" prefHeight="27.0" prefWidth="380.0" text="Où allez-vous?" textAlignment="CENTER">
+               <font>
+                  <Font name="Noto Serif Bold" size="21.0" />
+               </font></Label>
+            <Button id="parametres" contentDisplay="CENTER" layoutX="495.0" layoutY="5.0" minWidth="25.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="51.0" textAlignment="CENTER" translateX="-4.0" />
+            <Button id="historique" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Historique" />
+            <ButtonBar id="triplet_boutons" buttonMinWidth="50.0" layoutX="14.0" layoutY="311.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="191.0" translateY="-4.0">
+              <buttons>
+                <Button contentDisplay="CENTER" minWidth="50.0" mnemonicParsing="false" prefHeight="50.0" textAlignment="CENTER" />
+                  <Button contentDisplay="CENTER" minWidth="50.0" mnemonicParsing="false" prefHeight="50.0" textAlignment="CENTER" />
+                  <Button contentDisplay="CENTER" minWidth="50.0" mnemonicParsing="false" prefHeight="50.0" textAlignment="CENTER" />
+              </buttons>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ButtonBar>
+            <ListView id="meilleurs_trajets" layoutX="25.0" layoutY="129.0" prefHeight="171.0" prefWidth="479.0" visible="false" />
+            <TextField id="barre_de_recherche_depart" layoutX="65.0" layoutY="55.0" prefHeight="31.0" prefWidth="210.0" promptText="Nom de ville de départ..." />
+            <RadioButton id="rb_train" layoutX="289.0" layoutY="308.0" mnemonicParsing="false" text="Train">
+               <toggleGroup>
+                  <ToggleGroup fx:id="groupe_modalite" />
+               </toggleGroup></RadioButton>
+            <RadioButton id="rb_bus" layoutX="289.0" layoutY="338.0" mnemonicParsing="false" text="Bus" toggleGroup="$groupe_modalite" />
+            <RadioButton id="rb_avion" layoutX="225.0" layoutY="338.0" mnemonicParsing="false" text="Avion" toggleGroup="$groupe_modalite" />
+            <Label layoutX="357.0" layoutY="309.0" prefHeight="15.0" prefWidth="54.0" text="Critère 1" />
+            <Label layoutX="416.0" layoutY="309.0" prefHeight="15.0" prefWidth="54.0" text="Critère 2" />
+            <Label layoutX="475.0" layoutY="309.0" prefHeight="15.0" prefWidth="54.0" text="Critère 3" />
+            <Group id="couts" layoutX="353.0" layoutY="326.0">
+               <children>
+                  <ChoiceBox id="critère1" prefHeight="23.0" prefWidth="57.0" />
+                  <ChoiceBox id="critère2" disable="true" layoutX="59.0" prefHeight="23.0" prefWidth="57.0" />
+                  <ChoiceBox id="critère3" disable="true" layoutX="118.0" prefHeight="23.0" prefWidth="57.0" />
+               </children>
+            </Group>
+            <RadioButton id="rb_aucune_modalite" layoutX="225.0" layoutY="308.0" mnemonicParsing="false" selected="true" text="Tout" toggleGroup="$groupe_modalite" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

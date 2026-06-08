@@ -1,0 +1,11 @@
+Bordeaux;Train;Bus;20;0;1
+Bordeaux;Train;Avion;60;0.1;15
+Bordeaux;Bus;Avion;75;0.1;10
+Paris;Train;Bus;15;0;1
+Paris;Train;Avion;90;0.1;20
+Paris;Bus;Avion;80;0.1;15
+Strasbourg;Train;Bus;20;0;1
+Strasbourg;Train;Avion;70;0.1;15
+Strasbourg;Bus;Avion;75;0.1;10
+Lille;Train;Bus;15;0;1
+Brest;Train;Bus;15;0;1
